@@ -80,6 +80,20 @@ function fail(error: string, status: number) {
   return Response.json({ ok: false, error }, { status });
 }
 
+function providerError(error: unknown) {
+  if (error && typeof error === "object") {
+    const details = error as { message?: unknown; name?: unknown };
+
+    return {
+      name: typeof details.name === "string" ? details.name : undefined,
+      message:
+        typeof details.message === "string" ? details.message : undefined,
+    };
+  }
+
+  return { message: typeof error === "string" ? error : undefined };
+}
+
 /** Narrows the untrusted JSON body into a `ContactMessage`. */
 function parse(body: unknown): ContactMessage | string {
   if (typeof body !== "object" || body === null) {
@@ -155,34 +169,45 @@ export async function POST(request: Request) {
   const notify = notificationEmail(parsed);
   const receipt = acknowledgementEmail(parsed);
 
-  const [notifyResult, receiptResult] = await Promise.all([
-    resend.emails.send({
-      from,
-      to,
-      replyTo: parsed.email,
-      subject: notify.subject,
-      html: notify.html,
-      text: notify.text,
-    }),
-    resend.emails.send({
-      from,
-      to: parsed.email,
-      replyTo: to,
-      subject: receipt.subject,
-      html: receipt.html,
-      text: receipt.text,
-    }),
-  ]);
+  let notifyResult: Awaited<ReturnType<typeof resend.emails.send>>;
+  let receiptResult: Awaited<ReturnType<typeof resend.emails.send>>;
+
+  try {
+    [notifyResult, receiptResult] = await Promise.all([
+      resend.emails.send({
+        from,
+        to,
+        replyTo: parsed.email,
+        subject: notify.subject,
+        html: notify.html,
+        text: notify.text,
+      }),
+      resend.emails.send({
+        from,
+        to: parsed.email,
+        replyTo: to,
+        subject: receipt.subject,
+        html: receipt.html,
+        text: receipt.text,
+      }),
+    ]);
+  } catch (error) {
+    console.error("[contact] Resend request failed", providerError(error));
+    return fail("Sending failed on my end. Please try LinkedIn instead.", 502);
+  }
 
   // The notification is the one that matters — if it failed, the message is lost.
   if (notifyResult.error) {
-    console.error("[contact] notification failed", notifyResult.error);
+    console.error(
+      "[contact] notification failed",
+      providerError(notifyResult.error),
+    );
     return fail("Sending failed on my end. Please try LinkedIn instead.", 502);
   }
 
   // A bounced receipt is worth logging but not worth failing the submission over.
   if (receiptResult.error) {
-    console.error("[contact] receipt failed", receiptResult.error);
+    console.error("[contact] receipt failed", providerError(receiptResult.error));
     return Response.json({ ok: true, receipt: false });
   }
 
