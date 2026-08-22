@@ -1,69 +1,105 @@
-import Image from "next/image";
+import { sections } from "@/lib/data";
+import Nav from "@/components/Nav";
+import Hero from "@/components/Hero";
+import PixelSection from "@/components/PixelSection";
+import Footer from "@/components/Footer";
+import Journey from "@/components/sections/Journey";
+import Arsenal from "@/components/sections/Arsenal";
+import Adventures from "@/components/sections/Adventures";
+import Playworld from "@/components/sections/Playworld";
+import Contact from "@/components/sections/Contact";
+
+/** Section copy lives next to the layout; everything else comes from `lib/data`. */
+const screens = {
+  journey: {
+    title: "The quest log",
+    lead: "Roles, clubs and coursework in the order they happened — expand a quest for the detail.",
+  },
+  arsenal: {
+    title: "Skill tree",
+    lead: "Four branches, thirty-odd nodes. The bars are self-assessed confidence, not a benchmark.",
+  },
+  adventures: {
+    title: "Save slots",
+    lead: "Nine builds, from multi-agent AI platforms to hardware that fires an SOS. Most are live.",
+  },
+  playworld: {
+    title: "Trophy room",
+    lead: "Selections, hackathon runs and certifications worth putting on the shelf.",
+  },
+  contact: {
+    title: "Player 2, join?",
+    lead: "Internships, collaborations, or a problem you can't stop thinking about — all welcome.",
+  },
+} as const;
+
+const screen = (id: keyof typeof screens) =>
+  sections.find((section) => section.id === id)?.screen ?? "";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <a
+        href="#journey"
+        className="retro sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[110] focus:bg-primary focus:px-5 focus:py-3 focus:text-[10px] focus:text-primary-foreground focus:uppercase"
+      >
+        Skip to content
+      </a>
+
+      <Nav />
+
+      <main>
+        <Hero />
+
+        <PixelSection
+          id="journey"
+          screen={screen("journey")}
+          title={screens.journey.title}
+          lead={screens.journey.lead}
+        >
+          <Journey />
+        </PixelSection>
+
+        <PixelSection
+          id="arsenal"
+          screen={screen("arsenal")}
+          title={screens.arsenal.title}
+          lead={screens.arsenal.lead}
+          className="bg-muted/40"
+        >
+          <Arsenal />
+        </PixelSection>
+
+        <PixelSection
+          id="adventures"
+          screen={screen("adventures")}
+          title={screens.adventures.title}
+          lead={screens.adventures.lead}
+        >
+          <Adventures />
+        </PixelSection>
+
+        <PixelSection
+          id="playworld"
+          screen={screen("playworld")}
+          title={screens.playworld.title}
+          lead={screens.playworld.lead}
+          className="bg-muted/40"
+        >
+          <Playworld />
+        </PixelSection>
+
+        <PixelSection
+          id="contact"
+          screen={screen("contact")}
+          title={screens.contact.title}
+          lead={screens.contact.lead}
+        >
+          <Contact />
+        </PixelSection>
       </main>
-    </div>
+
+      <Footer />
+    </>
   );
 }

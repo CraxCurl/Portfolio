@@ -1,0 +1,27 @@
+/*
+ * Local override of the file 8bitcn ships.
+ *
+ * The registry version starts with an `@import url(...)` to Google Fonts,
+ * which is a render-blocking third-party request on every page load. Press
+ * Start 2P is loaded through `next/font` in `app/layout.tsx` instead — self
+ * hosted, preloaded, no external hop — and exposed as `--font-press-start`.
+ *
+ * Re-running `shadcn add` for any 8bitcn component will restore the upstream
+ * file and reintroduce the CDN import; re-apply this if that happens.
+ */
+
+.retro {
+  font-family:
+    var(--font-press-start),
+    "Press Start 2P",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
