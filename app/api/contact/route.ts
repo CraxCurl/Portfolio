@@ -138,18 +138,12 @@ export async function POST(request: Request) {
 
   if (!apiKey) {
     console.error("[contact] RESEND_API_KEY is not set");
-    return fail(
-      "Email delivery is not configured on this deployment. Please reach me on LinkedIn instead.",
-      503,
-    );
+    return fail("The form isn't wired up yet — reach me on LinkedIn instead.", 503);
   }
 
   if (!to) {
     console.error("[contact] no recipient: set CONTACT_TO_EMAIL");
-    return fail(
-      "Email delivery is missing its recipient configuration. Please reach me on LinkedIn instead.",
-      503,
-    );
+    return fail("The form isn't wired up yet — reach me on LinkedIn instead.", 503);
   }
 
   if (rateLimited(clientKey(request))) {
