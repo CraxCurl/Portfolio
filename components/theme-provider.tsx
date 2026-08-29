@@ -42,7 +42,7 @@ function ThemeHotkey() {
         return;
       }
 
-      if (event.key.toLowerCase() !== "d") {
+      if (!event.key || typeof event.key !== "string" || event.key.toLowerCase() !== "d") {
         return;
       }
 

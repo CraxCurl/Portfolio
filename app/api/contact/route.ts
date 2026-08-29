@@ -16,12 +16,15 @@ import {
  * will reject a `from` on any domain it hasn't verified.
  */
 
-/** Sending identity. Must be on a domain verified in the Resend dashboard. */
+/** Sending identity. Must be on a domain verified in the Resend dashboard or onboarding@resend.dev. */
+const rawFrom = process.env.CONTACT_FROM_EMAIL?.replace(/^["']|["']$/g, "").trim();
 const from =
-  process.env.CONTACT_FROM_EMAIL ?? `${profile.name} <portfolio@stigz.xyz>`;
+  rawFrom && rawFrom.length > 0
+    ? rawFrom
+    : `${profile.name} <onboarding@resend.dev>`;
 
 /** Inbox the message is delivered to. */
-const to = process.env.CONTACT_TO_EMAIL ?? profile.email;
+const to = process.env.CONTACT_TO_EMAIL?.replace(/^["']|["']$/g, "").trim() || profile.email;
 
 const limits = { name: 80, email: 200, message: 4000 } as const;
 
@@ -34,7 +37,7 @@ const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
  * limit rather than a guarantee, but it stops the obvious flood.
  */
 const window = 60_000;
-const maxPerWindow = 3;
+const maxPerWindow = 5;
 const seen = new Map<string, number[]>();
 
 function rateLimited(key: string) {
@@ -138,16 +141,16 @@ export async function POST(request: Request) {
 
   if (!apiKey) {
     console.error("[contact] RESEND_API_KEY is not set");
-    return fail("The form isn't wired up yet — reach me on LinkedIn instead.", 503);
+    return fail("The contact relay isn't configured yet. Please email vinayak02tripathi2006@gmail.com directly or connect on LinkedIn.", 503);
   }
 
   if (!to) {
     console.error("[contact] no recipient: set CONTACT_TO_EMAIL");
-    return fail("The form isn't wired up yet — reach me on LinkedIn instead.", 503);
+    return fail("The recipient address isn't configured. Please email vinayak02tripathi2006@gmail.com directly.", 503);
   }
 
   if (rateLimited(clientKey(request))) {
-    return fail("That's a few messages in a row — give it a minute.", 429);
+    return fail("That's a few messages in a row — please wait a minute before sending another.", 429);
   }
 
   let body: unknown;
@@ -169,47 +172,53 @@ export async function POST(request: Request) {
   const notify = notificationEmail(parsed);
   const receipt = acknowledgementEmail(parsed);
 
-  let notifyResult: Awaited<ReturnType<typeof resend.emails.send>>;
-  let receiptResult: Awaited<ReturnType<typeof resend.emails.send>>;
+  let notifyResult;
+  let receiptResult;
 
+  // 1. Send the essential notification email to Vinayak
   try {
-    [notifyResult, receiptResult] = await Promise.all([
-      resend.emails.send({
-        from,
-        to,
-        replyTo: parsed.email,
-        subject: notify.subject,
-        html: notify.html,
-        text: notify.text,
-      }),
-      resend.emails.send({
-        from,
-        to: parsed.email,
-        replyTo: to,
-        subject: receipt.subject,
-        html: receipt.html,
-        text: receipt.text,
-      }),
-    ]);
+    notifyResult = await resend.emails.send({
+      from,
+      to,
+      replyTo: parsed.email,
+      subject: notify.subject,
+      html: notify.html,
+      text: notify.text,
+    });
   } catch (error) {
-    console.error("[contact] Resend request failed", providerError(error));
-    return fail("Sending failed on my end. Please try LinkedIn instead.", 502);
+    console.error("[contact] Resend notification request failed", providerError(error));
+    return fail(`Unable to dispatch email: please email directly at ${profile.email} or reach out on LinkedIn.`, 502);
   }
 
-  // The notification is the one that matters — if it failed, the message is lost.
   if (notifyResult.error) {
     console.error(
       "[contact] notification failed",
       providerError(notifyResult.error),
     );
-    return fail("Sending failed on my end. Please try LinkedIn instead.", 502);
+    return fail(
+      notifyResult.error.message || `Unable to send message: please email directly at ${profile.email}.`,
+      502,
+    );
   }
 
-  // A bounced receipt is worth logging but not worth failing the submission over.
-  if (receiptResult.error) {
-    console.error("[contact] receipt failed", providerError(receiptResult.error));
-    return Response.json({ ok: true, receipt: false });
+  // 2. Attempt receipt email to sender (non-critical: won't fail submission if visitor address is unverified in test mode)
+  try {
+    receiptResult = await resend.emails.send({
+      from,
+      to: parsed.email,
+      replyTo: to,
+      subject: receipt.subject,
+      html: receipt.html,
+      text: receipt.text,
+    });
+
+    if (receiptResult.error) {
+      console.warn("[contact] receipt send returned error (expected in unverified test mode):", providerError(receiptResult.error));
+    }
+  } catch (error) {
+    console.warn("[contact] receipt send exception ignored:", providerError(error));
   }
 
-  return Response.json({ ok: true, receipt: true });
+  const hasReceipt = Boolean(receiptResult && !receiptResult.error);
+  return Response.json({ ok: true, receipt: hasReceipt });
 }
