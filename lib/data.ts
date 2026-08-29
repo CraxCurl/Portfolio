@@ -40,14 +40,72 @@ export type SectionId =
   | "playworld"
   | "contact";
 
+export interface SectionMeta {
+  id: SectionId;
+  label: string;
+  screen: string;
+  href: string;
+  tag: string;
+  summary: string;
+  statBadge: string;
+}
+
 /** `screen` is the arcade-style caption shown above each section heading. */
-export const sections: { id: SectionId; label: string; screen: string }[] = [
-  { id: "home", label: "Home", screen: "Title Screen" },
-  { id: "journey", label: "Journey", screen: "Quest Log" },
-  { id: "arsenal", label: "Arsenal", screen: "Skill Tree" },
-  { id: "adventures", label: "Adventures", screen: "Save Slots" },
-  { id: "playworld", label: "Playworld", screen: "Trophy Room" },
-  { id: "contact", label: "Contact", screen: "Player 2 Join" },
+export const sections: SectionMeta[] = [
+  {
+    id: "home",
+    label: "Home",
+    screen: "Title Screen",
+    href: "/",
+    tag: "HUD // 01",
+    summary: "Character sheet, vital meters and mission control.",
+    statBadge: "LV. 2 B.TECH",
+  },
+  {
+    id: "journey",
+    label: "Journey",
+    screen: "Quest Log",
+    href: "/journey",
+    tag: "LOG // 02",
+    summary: "Clubs at VIT Chennai, NIELIT training, and education timeline.",
+    statBadge: "5 QUESTS",
+  },
+  {
+    id: "arsenal",
+    label: "Arsenal",
+    screen: "Skill Tree",
+    href: "/arsenal",
+    tag: "TECH // 03",
+    summary: "Multi-agent AI, full stack MERN, Python, and hardware proficiencies.",
+    statBadge: "26 NODES",
+  },
+  {
+    id: "adventures",
+    label: "Adventures",
+    screen: "Save Slots",
+    href: "/adventures",
+    tag: "BUILDS // 04",
+    summary: "9 shipped builds spanning multi-agent copilot, IoT SOS, and web tools.",
+    statBadge: "9 BUILDS",
+  },
+  {
+    id: "playworld",
+    label: "Playworld",
+    screen: "Trophy Room",
+    href: "/playworld",
+    tag: "SCORE // 05",
+    summary: "GSSoC'26 selection, Faraway Hackathon Round 2, and achievements.",
+    statBadge: "3 TROPHIES",
+  },
+  {
+    id: "contact",
+    label: "Contact",
+    screen: "Player 2 Join",
+    href: "/contact",
+    tag: "COMM // 06",
+    summary: "Direct transmission terminal, social channels, and collaboration.",
+    statBadge: "ONLINE",
+  },
 ];
 
 /** Nav is split around the centre logo, mirroring the reference layout. */
@@ -198,11 +256,14 @@ export const skillGroups: SkillGroup[] = [
   },
 ];
 
+export type ProjectCategory = "ai" | "web" | "hardware" | "tools";
+
 export type Project = {
   name: string;
   tagline: string;
   description: string;
   stack: string[];
+  category: ProjectCategory;
   live?: string;
   repo?: string;
   year: string;
@@ -218,6 +279,7 @@ export const projects: Project[] = [
     description:
       "Upload a CV, state your goals, and get a full dashboard of career intelligence: skill gaps against your target role, a personalised roadmap, ATS insights, matched hackathons and internships, plus an interviewer bot that knows your history. Five specialised agents run in parallel — resume/ATS, skills, roadmap, opportunities, interviews — orchestrated by a master agent with a fallback engine so the dashboard still renders when an individual agent returns bad output.",
     stack: ["FastAPI", "React", "MongoDB", "Gemini 2.5 Flash", "Multi-Agent"],
+    category: "ai",
     live: "https://ascend-iq-mu.vercel.app",
     repo: "https://github.com/CraxCurl/AscendIQ",
     year: "2026",
@@ -231,6 +293,7 @@ export const projects: Project[] = [
     description:
       "Built on Google Gemma, Sahayak adapts website interfaces in real time — simplifying complex workflows, assisting intelligently with forms, and enhancing UI on the fly to make the web usable for more people.",
     stack: ["TypeScript", "Google Gemma", "Browser Extension", "Python"],
+    category: "ai",
     repo: "https://github.com/CraxCurl/Sahayak",
     year: "2026",
     accent: "violet",
@@ -242,6 +305,7 @@ export const projects: Project[] = [
     description:
       "A transaction monitoring system using graph neural networks to surface mule networks, rapid fund flows and laundering patterns across payment channels — with explainable risk scores, cross-border analysis, privacy-safe intelligence sharing and automated compliance reporting.",
     stack: ["Graph Neural Networks", "Python", "FinTech", "Explainable AI"],
+    category: "ai",
     repo: "https://github.com/CraxCurl/GraphGuard-AI",
     year: "2026",
     accent: "sky",
@@ -253,6 +317,7 @@ export const projects: Project[] = [
     description:
       "Connects an ESP32 device to a web platform to fire SOS messages with live GPS location to registered contacts the moment they're needed — built around smart automation, secure cloud integration and interactive tracking for rapid response.",
     stack: ["ESP32", "JavaScript", "IoT", "GPS", "Realtime"],
+    category: "hardware",
     repo: "https://github.com/CraxCurl/ResQLink",
     year: "2026",
     accent: "amber",
@@ -264,6 +329,7 @@ export const projects: Project[] = [
     description:
       "A smart farming assistant that helps farmers make better decisions with AI-driven guidance, wrapped in a deliberately bold Bauhaus constructivist interface.",
     stack: ["JavaScript", "AI", "Data Viz"],
+    category: "web",
     live: "https://agri-x-ten.vercel.app",
     repo: "https://github.com/CraxCurl/AgriX",
     year: "2026",
@@ -275,6 +341,7 @@ export const projects: Project[] = [
     description:
       "Teachers get QR attendance, Excel registry uploads and doubt resolution with image support; students mark presence and send private queries from mobile. Adds targeted announcements on top of a streamlined UI for both sides of the classroom.",
     stack: ["Web + Mobile", "QR Attendance", "Realtime"],
+    category: "web",
     live: "https://acadlyfr.vercel.app",
     repo: "https://github.com/CraxCurl/Acadly",
     year: "2026",
@@ -286,6 +353,7 @@ export const projects: Project[] = [
     description:
       "A collaboration board built for developers working across multiple projects at once, keeping task state and ownership legible.",
     stack: ["TypeScript", "React", "Collaboration"],
+    category: "web",
     live: "https://dev-chart-five.vercel.app",
     repo: "https://github.com/CraxCurl/devChart",
     year: "2026",
@@ -297,6 +365,7 @@ export const projects: Project[] = [
     description:
       "Scrapes and consolidates event listings into one searchable hub so opportunities don't get lost across a dozen different sites.",
     stack: ["JavaScript", "Web Scraping", "Node.js"],
+    category: "tools",
     live: "https://event-hub-scrapper.vercel.app",
     repo: "https://github.com/CraxCurl/EventHubScrapper",
     year: "2026",
@@ -308,6 +377,7 @@ export const projects: Project[] = [
     description:
       "A browser-based Family Feud clone built to run real audience games at club events — scoreboards, reveals and round control included.",
     stack: ["JavaScript", "Game", "Realtime"],
+    category: "tools",
     live: "https://acfeud.vercel.app",
     repo: "https://github.com/CraxCurl/FamilyFeud",
     year: "2026",

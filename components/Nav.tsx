@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navLeft, navRight, profile, sections, type SectionId } from "@/lib/data";
-import { useActiveSection } from "@/hooks/useActiveSection";
 import { RetroModeSwitcher } from "@/components/ui/retro-mode-switcher";
 import { Button } from "@/components/ui/8bit/button";
 import {
@@ -14,9 +15,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/8bit/sheet";
-
-const label = (id: SectionId) =>
-  sections.find((s) => s.id === id)?.label ?? id;
 
 function NavLink({
   id,
@@ -29,16 +27,19 @@ function NavLink({
   onNavigate?: () => void;
   className?: string;
 }) {
+  const section = sections.find((s) => s.id === id);
+  if (!section) return null;
+
   return (
-    <a
-      href={`#${id}`}
+    <Link
+      href={section.href}
       onClick={onNavigate}
-      aria-current={active ? "true" : undefined}
+      aria-current={active ? "page" : undefined}
       className={cn(
-        "retro relative inline-flex items-center gap-2 px-2 py-1.5 text-[10px] uppercase transition-colors",
+        "retro relative inline-flex items-center gap-2 px-2.5 py-1.5 text-[10px] uppercase transition-colors",
         active
-          ? "bg-primary text-primary-foreground"
-          : "text-muted-foreground hover:text-foreground",
+          ? "bg-primary text-primary-foreground font-bold"
+          : "text-muted-foreground hover:text-foreground hover:bg-muted/50",
         className,
       )}
     >
@@ -52,37 +53,46 @@ function NavLink({
       >
         &gt;
       </span>
-      {label(id)}
-    </a>
+      {section.label}
+    </Link>
   );
 }
 
 export default function Nav() {
-  const active = useActiveSection();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
+  const isSectionActive = (id: SectionId) => {
+    const section = sections.find((s) => s.id === id);
+    if (!section) return false;
+    if (section.href === "/") {
+      return pathname === "/" || pathname === "";
+    }
+    return pathname.startsWith(section.href);
+  };
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b-4 border-foreground bg-background/95 backdrop-blur-sm dark:border-ring">
+    <header className="fixed inset-x-0 top-0 z-50 border-b-4 border-foreground bg-background/95 backdrop-blur-md dark:border-ring">
       <nav
         aria-label="Primary"
         className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-5 sm:px-8"
       >
-        {/* Wordmark */}
-        <a
-          href="#home"
-          className="retro flex shrink-0 items-center gap-2 text-xs text-foreground sm:text-sm"
+        {/* Wordmark / Home Link */}
+        <Link
+          href="/"
+          className="retro flex shrink-0 items-center gap-2.5 text-xs text-foreground transition-opacity hover:opacity-80 sm:text-sm"
         >
           <span
             aria-hidden="true"
-            className="inline-block size-3 bg-accent animate-pixel-blink"
+            className="inline-block size-3 animate-pixel-blink bg-accent"
           />
-          {profile.logo}
-        </a>
+          <span className="font-bold tracking-wider">{profile.logo}</span>
+        </Link>
 
         {/* Desktop links */}
         <div className="hidden items-center gap-1 lg:flex">
           {[...navLeft, ...navRight].map((id) => (
-            <NavLink key={id} id={id} active={active === id} />
+            <NavLink key={id} id={id} active={isSectionActive(id)} />
           ))}
         </div>
 
@@ -104,7 +114,8 @@ export default function Nav() {
 
             <SheetContent side="right" className="w-72">
               <SheetHeader className="pt-8">
-                <SheetTitle className="retro text-sm">
+                <SheetTitle className="retro flex items-center gap-2 text-sm">
+                  <span className="size-2.5 bg-accent" />
                   {profile.logo}
                 </SheetTitle>
               </SheetHeader>
@@ -114,7 +125,7 @@ export default function Nav() {
                   <NavLink
                     key={id}
                     id={id}
-                    active={active === id}
+                    active={isSectionActive(id)}
                     onNavigate={() => setOpen(false)}
                     className="py-3 text-xs"
                   />

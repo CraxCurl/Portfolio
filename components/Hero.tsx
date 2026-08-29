@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { profile, skillGroups, stats } from "@/lib/data";
 import { cn } from "@/lib/utils";
@@ -99,14 +99,14 @@ export default function Hero() {
 
           <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-5">
             <Button asChild size="lg" className="text-[10px]">
-              <Link href="#adventures">
+              <Link href="/adventures">
                 View builds
                 <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
             </Button>
 
             <Button asChild size="lg" variant="outline" className="text-[10px]">
-              <Link href="#contact">Press start</Link>
+              <Link href="/contact">Press start</Link>
             </Button>
 
             <div className="flex items-center gap-4">
@@ -204,13 +204,13 @@ export default function Hero() {
               <dd className="retro text-xs text-primary">{stat.value}</dd>
             </div>
           ))}
-          <a
-            href="#journey"
+          <Link
+            href="/journey"
             className="retro flex items-center gap-2 text-[9px] text-muted-foreground uppercase transition-colors hover:text-foreground"
           >
-            Continue
-            <ArrowDown className="size-3.5 animate-pixel-bob" aria-hidden="true" />
-          </a>
+            Quest Log
+            <ArrowRight className="size-3.5 animate-pixel-bob" aria-hidden="true" />
+          </Link>
         </dl>
       </div>
     </section>

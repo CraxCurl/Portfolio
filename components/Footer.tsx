@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { profile, sections } from "@/lib/data";
 import { GithubIcon, HeartIcon, LinkedinIcon } from "@/components/PixelIcon";
 import { Button } from "@/components/ui/8bit/button";
@@ -30,7 +31,7 @@ function TickerTrack() {
 
 export default function Footer() {
   return (
-    <footer className="border-t-4 border-foreground dark:border-ring">
+    <footer className="border-t-4 border-foreground bg-card/50 dark:border-ring">
       {/* Ticker */}
       <div
         aria-hidden="true"
@@ -45,18 +46,21 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
           <div>
-            <p className="retro flex items-center gap-2.5 text-sm text-foreground">
+            <Link
+              href="/"
+              className="retro flex items-center gap-2.5 text-sm text-foreground transition-colors hover:text-primary"
+            >
               <span
                 aria-hidden="true"
-                className="inline-block size-3 bg-accent"
+                className="inline-block size-3 bg-accent animate-pixel-blink"
               />
               {profile.logo}
-            </p>
+            </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
               {profile.headline}
             </p>
 
-            <div className="mt-7 flex items-center gap-6">
+            <div className="mt-7 flex items-center gap-4">
               <Button asChild size="icon" variant="ghost" aria-label="GitHub profile">
                 <a href={profile.links.github} target="_blank" rel="noreferrer">
                   <GithubIcon className="size-5" />
@@ -84,14 +88,17 @@ export default function Footer() {
               Select screen
             </p>
             <ul className="mt-5 grid grid-cols-2 gap-x-10 gap-y-3.5">
-              {sections.map(({ id, label }) => (
+              {sections.map(({ id, label, href }) => (
                 <li key={id}>
-                  <a
-                    href={`#${id}`}
-                    className="retro text-[10px] text-foreground uppercase transition-colors hover:text-primary"
+                  <Link
+                    href={href}
+                    className="retro group flex items-center gap-2 text-[10px] text-foreground uppercase transition-colors hover:text-primary"
                   >
-                    {label}
-                  </a>
+                    <span className="text-[8px] text-muted-foreground transition-colors group-hover:text-primary">
+                      &gt;
+                    </span>
+                    <span>{label}</span>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -100,7 +107,7 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col gap-4 border-t-4 border-dashed border-foreground pt-8 sm:flex-row sm:items-center sm:justify-between dark:border-ring">
           <p className="retro text-[9px] text-muted-foreground uppercase">
-            © {new Date().getFullYear()} {profile.name}
+            © {new Date().getFullYear()} {profile.name} · VIT Chennai
           </p>
           <p className="retro flex items-center gap-2.5 text-[9px] text-muted-foreground uppercase">
             Built with

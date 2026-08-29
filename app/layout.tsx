@@ -67,6 +67,9 @@ export const viewport: Viewport = {
   themeColor: "#f2efe2",
 };
 
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     // `suppressHydrationWarning` is required by next-themes: it writes the
@@ -86,7 +89,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           enableSystem={false}
           disableTransitionOnChange
         >
-          <TooltipProvider delayDuration={200}>{children}</TooltipProvider>
+          <TooltipProvider delayDuration={200}>
+            <div className="flex min-h-dvh flex-col">
+              <Nav />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </div>
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>
