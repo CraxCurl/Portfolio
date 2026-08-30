@@ -90,7 +90,7 @@ export default function ContactClient() {
         <Reveal className="mb-10">
           <div className="flex flex-wrap items-center justify-between gap-4 border-2 border-primary bg-primary/10 p-4">
             <div className="flex items-center gap-3">
-              <span className="size-3 animate-pixel-blink bg-primary" />
+              <span className="size-3 bg-primary" />
               <span className="retro text-[9px] font-bold text-foreground uppercase">
                 AVAILABILITY: OPEN FOR INTERNSHIPS &amp; COLLABORATIONS (2026)
               </span>

@@ -212,7 +212,7 @@ export default function Adventures() {
                 <p className="retro flex items-center gap-2.5 text-[9px] text-muted-foreground uppercase">
                   <span
                     aria-hidden="true"
-                    className={cn("size-2 animate-pixel-blink", accent.block)}
+                    className={cn("size-2", accent.block)}
                   />
                   {slot(featuredIndex)} · Autosave
                 </p>

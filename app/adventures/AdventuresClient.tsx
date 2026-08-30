@@ -222,7 +222,7 @@ export default function AdventuresClient() {
                 <div>
                   <div className="flex flex-wrap items-center gap-3">
                     <p className="retro flex items-center gap-2 text-[9px] text-accent uppercase font-bold">
-                      <span aria-hidden="true" className="size-2.5 animate-pixel-blink bg-accent" />
+                      <span aria-hidden="true" className="size-2.5 bg-accent" />
                       Slot 01 · Primary Save
                     </p>
                     {featuredProject.highlight && (

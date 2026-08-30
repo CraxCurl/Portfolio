@@ -52,7 +52,7 @@ export default function Footer() {
             >
               <span
                 aria-hidden="true"
-                className="inline-block size-3 bg-accent animate-pixel-blink"
+                className="inline-block size-3 bg-accent"
               />
               {profile.logo}
             </Link>
@@ -111,7 +111,7 @@ export default function Footer() {
           </p>
           <p className="retro flex items-center gap-2.5 text-[9px] text-muted-foreground uppercase">
             Built with
-            <HeartIcon className="size-3.5 animate-pixel-blink text-accent" />
+            <HeartIcon className="size-3.5 text-accent" />
             Next.js &amp; 8bitcn/ui
           </p>
         </div>

@@ -43,12 +43,12 @@ function NavLink({
         className,
       )}
     >
-      {/* The blinking selector arrow only rides along with the active item. */}
+      {/* The selector arrow only rides along with the active item. */}
       <span
         aria-hidden="true"
         className={cn(
           "text-[10px] leading-none",
-          active ? "animate-pixel-blink opacity-100" : "opacity-0",
+          active ? "opacity-100" : "opacity-0",
         )}
       >
         &gt;
@@ -84,7 +84,7 @@ export default function Nav() {
         >
           <span
             aria-hidden="true"
-            className="inline-block size-3 animate-pixel-blink bg-accent"
+            className="inline-block size-3 bg-accent"
           />
           <span className="font-bold tracking-wider">{profile.logo}</span>
         </Link>

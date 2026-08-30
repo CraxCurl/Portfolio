@@ -72,7 +72,7 @@ export default function Hero() {
             <span className="retro inline-flex items-center gap-2 text-[10px] text-primary uppercase">
               <span
                 aria-hidden="true"
-                className="inline-block size-2 animate-pixel-blink bg-primary"
+                className="inline-block size-2 bg-primary"
               />
               {profile.player}
             </span>

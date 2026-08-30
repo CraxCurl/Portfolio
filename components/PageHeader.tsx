@@ -41,7 +41,7 @@ export default function PageHeader({
             <span className="retro inline-flex items-center gap-2 text-[9px] text-accent uppercase">
               <span
                 aria-hidden="true"
-                className="inline-block size-2 animate-pixel-blink bg-accent"
+                className="inline-block size-2 bg-accent"
               />
               {screenTag}
             </span>

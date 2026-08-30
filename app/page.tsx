@@ -36,7 +36,7 @@ export default function Home() {
                 <p className="retro flex items-center gap-2 text-[10px] text-accent uppercase">
                   <span
                     aria-hidden="true"
-                    className="inline-block size-2 animate-pixel-blink bg-accent"
+                    className="inline-block size-2 bg-accent"
                   />
                   Mission Select
                 </p>
