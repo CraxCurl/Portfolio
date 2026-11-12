@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/8bit/button";
 interface PageHeaderProps {
   screenTag: string;
   title: string;
+  subtitle?: string;
   lead: string;
   badge?: string;
   badgeVariant?: "default" | "secondary" | "outline";
@@ -17,6 +18,7 @@ interface PageHeaderProps {
 export default function PageHeader({
   screenTag,
   title,
+  subtitle,
   lead,
   badge,
   badgeVariant = "default",
@@ -64,8 +66,18 @@ export default function PageHeader({
                 accentColor,
               )}
             >
-              {title}
+              <span className="block text-xs sm:text-sm text-muted-foreground font-mono font-normal tracking-wider mb-2 normal-case">
+                Vinayak Tripathi | AI &amp; Full Stack Developer at VIT Chennai
+              </span>
+              <span className="block">{title}</span>
             </h1>
+
+            {subtitle && (
+              <h2 className="retro mt-3 text-xs font-bold text-foreground uppercase sm:text-sm">
+                {subtitle}
+              </h2>
+            )}
+
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
               {lead}
             </p>

@@ -46,14 +46,15 @@ export default function JourneyClient() {
       <PageHeader
         screenTag="QUEST LOG // SCREEN 02"
         title="The Quest Log"
-        lead="Roles, clubs and coursework in the order they happened — expand a quest for full detail."
+        subtitle="Journey: Career, Web Clubs & Education at VIT Chennai"
+        lead="Roles, clubs and coursework in the order they happened: expand a quest for full detail."
         badge={`${activeCount} Active · ${clearedCount} Cleared`}
         accentColor="text-primary"
       >
         <div className="flex flex-wrap items-center gap-2">
           <Badge variant="outline" className="retro text-[8px] uppercase">
             <Clock className="mr-1 size-2.5" />
-            2025 — 2026
+            2025 to 2026
           </Badge>
           <Badge variant="secondary" className="retro text-[8px] uppercase">
             <Sparkles className="mr-1 size-2.5" />
@@ -64,7 +65,7 @@ export default function JourneyClient() {
 
       <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
-          {/* ── Left Column: Briefing & Summary ─────────────────────────── */}
+          {/* Left Column: Briefing & Summary */}
           <div className="flex flex-col gap-8">
             <Reveal className="px-2 lg:px-0">
               <div className="lg:sticky lg:top-28">
@@ -111,7 +112,7 @@ export default function JourneyClient() {
             </Reveal>
           </div>
 
-          {/* ── Right Column: Interactive Quest Log ──────────────────────── */}
+          {/* Right Column: Interactive Quest Log */}
           <div className="flex flex-col gap-6">
             {/* Filter bar */}
             <Reveal>

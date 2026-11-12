@@ -20,10 +20,10 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      {/* ── Title Screen & Character Sheet ─────────────────────────────── */}
+      {/* Title Screen & Character Sheet */}
       <Hero />
 
-      {/* ── Mission Select / Hub Grid ──────────────────────────────────── */}
+      {/* Mission Select / Hub Grid */}
       <section
         id="hub-missions"
         aria-labelledby="hub-heading"
@@ -47,7 +47,7 @@ export default function Home() {
                   Explore The Portfolio
                 </h2>
                 <p className="mt-3 max-w-xl text-sm text-muted-foreground">
-                  Each realm contains detailed deep-dives, interactive inspect tools, and full logs.
+                  Each realm contains detailed deep dives, interactive inspect tools, and full logs.
                 </p>
               </div>
 
@@ -111,7 +111,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Featured Save Slot Spotlight ───────────────────────────────── */}
+      {/* Featured Save Slot Spotlight */}
       <section className="border-t-4 border-foreground bg-background py-20 dark:border-ring">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal>
@@ -190,7 +190,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Ready to Join Banner ───────────────────────────────────────── */}
+      {/* Ready to Join Banner */}
       <section className="border-t-4 border-foreground bg-primary py-16 text-primary-foreground dark:border-ring">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-8 px-5 text-center sm:px-8 md:flex-row md:text-left">
           <div>
@@ -198,7 +198,7 @@ export default function Home() {
               Player 2 Join Ready
             </p>
             <h2 className="retro mt-2 text-xl font-bold uppercase sm:text-2xl">
-              Let&apos;s Build The Next Big Thing
+              Let us Build The Next Big Thing
             </h2>
             <p className="mt-2 max-w-lg text-sm text-primary-foreground/80">
               Open to internships, AI/web engineering collaborations, and hackathon teams.

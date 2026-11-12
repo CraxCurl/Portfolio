@@ -140,7 +140,8 @@ export default function AdventuresClient() {
       <PageHeader
         screenTag="SAVE SLOTS // SCREEN 04"
         title="The Save Slots"
-        lead="Nine builds, from multi-agent AI career copilots to hardware emergency SOS systems. Most are live and testable."
+        subtitle="Adventures: Shipped AI & Full Stack Projects"
+        lead="Nine builds, from multi agent AI career copilots to hardware emergency SOS systems. Most are live and testable."
         badge={`${projects.length} Shipped Projects`}
         accentColor="text-accent"
       >
@@ -156,7 +157,7 @@ export default function AdventuresClient() {
       </PageHeader>
 
       <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16">
-        {/* ── Category Filter Pills ───────────────────────────────────── */}
+        {/* Category Filter Pills */}
         <Reveal className="mb-10">
           <div className="flex flex-wrap items-center justify-between gap-4 border-b-2 border-border pb-5">
             <div className="flex items-center gap-2">
@@ -181,7 +182,7 @@ export default function AdventuresClient() {
                 onClick={() => setSelectedCategory("ai")}
                 className="h-8 text-[8px] uppercase"
               >
-                AI &amp; Multi-Agent ({projects.filter((p) => p.category === "ai").length})
+                AI &amp; Multi Agent ({projects.filter((p) => p.category === "ai").length})
               </Button>
               <Button
                 size="sm"
@@ -189,7 +190,7 @@ export default function AdventuresClient() {
                 onClick={() => setSelectedCategory("web")}
                 className="h-8 text-[8px] uppercase"
               >
-                Web &amp; Full-Stack ({projects.filter((p) => p.category === "web").length})
+                Web &amp; Full Stack ({projects.filter((p) => p.category === "web").length})
               </Button>
               <Button
                 size="sm"
@@ -211,7 +212,7 @@ export default function AdventuresClient() {
           </div>
         </Reveal>
 
-        {/* ── Featured Save Slot Banner (When on All) ──────────────────── */}
+        {/* Featured Save Slot Banner (When on All) */}
         {selectedCategory === "all" && (
           <Reveal className="mb-14">
             <Card
@@ -281,7 +282,7 @@ export default function AdventuresClient() {
           </Reveal>
         )}
 
-        {/* ── Project Cards Grid ───────────────────────────────────────── */}
+        {/* Project Cards Grid */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {filteredProjects.map((project) => {
             const index = projects.indexOf(project);

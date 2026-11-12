@@ -3,8 +3,8 @@ import AdventuresClient from "./AdventuresClient";
 import { profile } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Adventures // Save Slots",
-  description: `Showcase of 9 shipped software & AI projects by ${profile.name}, including AscendIQ, Sahayak, GraphGuard AI, ResQLink, and more.`,
+  title: "Adventures | Shipped AI & Full Stack Projects",
+  description: `Showcase of 9 shipped software & AI projects by ${profile.name} at VIT Chennai, including AscendIQ, Sahayak, GraphGuard AI, ResQLink, and more.`,
 };
 
 export default function AdventuresPage() {

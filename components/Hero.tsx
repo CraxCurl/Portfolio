@@ -23,7 +23,7 @@ const meters = skillGroups.map((group) => ({
   ),
 }));
 
-/** Four bars, four colours — the kit ships three themed ones plus the plain Progress. */
+/** Four bars, four colours: the kit ships three themed ones plus the plain Progress. */
 function Meter({ index, value }: { index: number; value: number }) {
   const common = { value, variant: "retro" as const, className: "h-3" };
 
@@ -66,7 +66,7 @@ export default function Hero() {
       ))}
 
       <div className="mx-auto grid w-full max-w-6xl gap-16 px-5 sm:px-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-center lg:gap-12">
-        {/* ── Title screen ─────────────────────────────────────────────── */}
+        {/* Title screen */}
         <div>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
             <span className="retro inline-flex items-center gap-2 text-[10px] text-primary uppercase">
@@ -89,6 +89,9 @@ export default function Hero() {
             id="home-heading"
             className="retro text-pixel mt-4 text-2xl leading-[1.35] text-foreground sm:text-4xl lg:text-[2.6rem]"
           >
+            <span className="block text-xs sm:text-sm text-muted-foreground font-mono font-normal tracking-wider mb-3">
+              Vinayak Tripathi | AI &amp; Full Stack Developer at VIT Chennai
+            </span>
             <span className="block">{profile.titleTop}</span>
             <span className="mt-2 block text-primary">{profile.titleBottom}</span>
           </h1>
@@ -135,7 +138,7 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* ── Character sheet ──────────────────────────────────────────── */}
+        {/* Character sheet */}
         <div className="px-2">
           <Card className="[--card-spacing:--spacing(6)]">
             <CardContent className="retro flex flex-col gap-6">
@@ -193,7 +196,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ── HUD score strip ────────────────────────────────────────────── */}
+      {/* HUD score strip */}
       <div className="absolute inset-x-0 bottom-0 hidden border-t-4 border-foreground bg-card/80 backdrop-blur-sm lg:block dark:border-ring">
         <dl className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-8 py-4">
           {stats.map((stat) => (

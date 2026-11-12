@@ -19,6 +19,7 @@ export default function PlayworldClient() {
       <PageHeader
         screenTag="TROPHY ROOM // SCREEN 05"
         title="The Trophy Room"
+        subtitle="Playworld: Hackathon Achievements & Open Source Selections"
         lead="Selections, hackathon runs and certifications worth putting on the shelf."
         badge="Accredited Honors"
         accentColor="text-yellow-500"
@@ -35,7 +36,7 @@ export default function PlayworldClient() {
       </PageHeader>
 
       <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16">
-        {/* ── High-Scores Strip ────────────────────────────────────────── */}
+        {/* High Scores Strip */}
         <Reveal className="mb-14">
           <div className="border-4 border-foreground bg-card/60 dark:border-ring">
             <div className="border-b-2 border-foreground bg-muted/50 px-4 py-2 dark:border-ring">
@@ -61,7 +62,7 @@ export default function PlayworldClient() {
           </div>
         </Reveal>
 
-        {/* ── Trophy Cards Grid ────────────────────────────────────────── */}
+        {/* Trophy Cards Grid */}
         <div className="mb-14">
           <div className="mb-6 flex items-center justify-between">
             <h2 className="retro text-xs font-bold uppercase text-foreground sm:text-sm">
@@ -134,7 +135,7 @@ export default function PlayworldClient() {
           </div>
         </div>
 
-        {/* ── Bonus Round Card ─────────────────────────────────────────── */}
+        {/* Bonus Round Card */}
         <Reveal>
           <Card font="normal" className="border-2 border-foreground dark:border-ring">
             <CardContent className="flex flex-col items-start justify-between gap-8 p-6 sm:flex-row sm:items-center sm:p-8">
@@ -146,7 +147,7 @@ export default function PlayworldClient() {
                   Everything ships from public repositories
                 </h3>
                 <p className="mt-3 max-w-xl text-xs leading-relaxed text-muted-foreground">
-                  Multi-agent experiments, browser extensions, IoT firmware, and game clones are open for inspection on GitHub.
+                  Multi agent experiments, browser extensions, IoT firmware, and game clones are open for inspection on GitHub.
                 </p>
               </div>
 

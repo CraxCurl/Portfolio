@@ -246,7 +246,7 @@ export default function Contact() {
                     </AlertTitle>
                     <AlertDescription className="text-sm">
                       {state.receipt
-                        ? `It's in ${profile.firstName}'s inbox — a confirmation copy is on its way to you too.`
+                        ? `It's in ${profile.firstName}'s inbox: a confirmation copy is on its way to you too.`
                         : `It's in ${profile.firstName}'s inbox. The confirmation copy to you didn't go through, but the message did.`}
                     </AlertDescription>
                   </Alert>

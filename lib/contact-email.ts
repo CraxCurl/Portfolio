@@ -146,13 +146,13 @@ export function acknowledgementEmail(input: ContactMessage): ContactEmail {
       <p style="margin:10px 0 0 0;font-size:14px;line-height:1.7;white-space:pre-wrap;">${toParagraphs(input.message)}</p>
     </div>`,
     `<p style="margin:0 0 16px 0;font-size:12px;color:${dim};">You can also find him on <a href="${profile.links.linkedin}" style="color:${green};">LinkedIn</a> and <a href="${profile.links.github}" style="color:${green};">GitHub</a>.</p>`,
-    `<p style="margin:0;font-size:12px;color:${dim};">Didn't send this? Ignore this email — nothing else will follow.</p>`,
+    `<p style="margin:0;font-size:12px;color:${dim};">Didn't send this? Ignore this email: nothing else will follow.</p>`,
   ].join("\n");
 
   return {
     subject: `Your message reached ${profile.name}`,
     html: shell({
-      heading: "Message delivered — thanks for reaching out",
+      heading: "Message delivered: thanks for reaching out",
       accent: pink,
       body,
     }),
@@ -167,7 +167,7 @@ export function acknowledgementEmail(input: ContactMessage): ContactEmail {
       `LinkedIn: ${profile.links.linkedin}`,
       `GitHub:   ${profile.links.github}`,
       ``,
-      `Didn't send this? Ignore this email — nothing else will follow.`,
+      `Didn't send this? Ignore this email: nothing else will follow.`,
     ].join("\n"),
   };
 }

@@ -3,7 +3,10 @@ import { profile, sections } from "@/lib/data";
 import { GithubIcon, HeartIcon, LinkedinIcon } from "@/components/PixelIcon";
 import { Button } from "@/components/ui/8bit/button";
 
-/** Repeated once per track; the track itself is rendered twice for the loop. */
+/**
+ * Ticker elements. Exactly one copy is accessible to crawlers and screen readers;
+ * all visual duplication for the seamless CSS infinite scroll is marked aria-hidden.
+ */
 const ticker = [
   profile.insertCoin,
   profile.name,
@@ -11,20 +14,32 @@ const ticker = [
   profile.location,
 ];
 
-function TickerTrack() {
+function TickerTrack({ isDuplicate = false }: { isDuplicate?: boolean }) {
   return (
-    <div className="flex shrink-0 items-center">
-      {[0, 1, 2].map((copy) =>
-        ticker.map((entry) => (
-          <span
-            key={`${copy}-${entry}`}
-            className="retro flex items-center gap-8 px-8 text-[9px] whitespace-nowrap text-primary-foreground uppercase"
-          >
-            {entry}
-            <span aria-hidden="true" className="inline-block size-2 bg-primary-foreground" />
-          </span>
-        )),
-      )}
+    <div
+      className="flex shrink-0 items-center"
+      aria-hidden={isDuplicate ? "true" : undefined}
+    >
+      {[0, 1, 2].map((copy) => (
+        <div
+          key={copy}
+          className="flex items-center"
+          aria-hidden={!isDuplicate && copy === 0 ? undefined : "true"}
+        >
+          {ticker.map((entry) => (
+            <span
+              key={entry}
+              className="retro flex items-center gap-8 px-8 text-[9px] whitespace-nowrap text-primary-foreground uppercase"
+            >
+              {entry}
+              <span
+                aria-hidden="true"
+                className="inline-block size-2 bg-primary-foreground"
+              />
+            </span>
+          ))}
+        </div>
+      ))}
     </div>
   );
 }
@@ -33,13 +48,10 @@ export default function Footer() {
   return (
     <footer className="border-t-4 border-foreground bg-card/50 dark:border-ring">
       {/* Ticker */}
-      <div
-        aria-hidden="true"
-        className="overflow-hidden border-b-4 border-foreground bg-primary py-3 dark:border-ring"
-      >
+      <div className="overflow-hidden border-b-4 border-foreground bg-primary py-3 dark:border-ring">
         <div className="flex w-max animate-pixel-marquee">
           <TickerTrack />
-          <TickerTrack />
+          <TickerTrack isDuplicate />
         </div>
       </div>
 

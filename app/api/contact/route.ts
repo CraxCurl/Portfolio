@@ -130,7 +130,7 @@ function parse(body: unknown): ContactMessage | string {
   }
   if (!trimmed.message) return "The message is empty.";
   if (trimmed.message.length > limits.message) {
-    return `Keep it under ${limits.message} characters — that's a long one.`;
+    return `Keep it under ${limits.message} characters: that is a long one.`;
   }
 
   return trimmed;
@@ -150,7 +150,7 @@ export async function POST(request: Request) {
   }
 
   if (rateLimited(clientKey(request))) {
-    return fail("That's a few messages in a row — please wait a minute before sending another.", 429);
+    return fail("That is a few messages in a row. Please wait a minute before sending another.", 429);
   }
 
   let body: unknown;

@@ -70,7 +70,8 @@ export default function ContactClient() {
       <PageHeader
         screenTag="PLAYER 2 JOIN // SCREEN 06"
         title="Player 2, Join?"
-        lead="Internships, collaborations, or a problem you can't stop thinking about — all transmissions welcome."
+        subtitle="Contact: Collaboration, Internships & Direct Messaging"
+        lead="Internships, collaborations, or a problem you cannot stop thinking about: all transmissions welcome."
         badge="Transmissions Online"
         accentColor="text-accent"
       >
@@ -86,7 +87,7 @@ export default function ContactClient() {
       </PageHeader>
 
       <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16">
-        {/* ── Status Banner ───────────────────────────────────────────── */}
+        {/* Status Banner */}
         <Reveal className="mb-10">
           <div className="flex flex-wrap items-center justify-between gap-4 border-2 border-primary bg-primary/10 p-4">
             <div className="flex items-center gap-3">
@@ -102,7 +103,7 @@ export default function ContactClient() {
         </Reveal>
 
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-14">
-          {/* ── Left Column: Direct Transmission Routes ─────────────────── */}
+          {/* Left Column: Direct Transmission Routes */}
           <Reveal className="px-2 lg:px-0">
             <Card font="normal" className="[--card-spacing:--spacing(6)] h-full border-2 border-border">
               <CardContent className="flex h-full flex-col justify-between gap-8">
@@ -165,7 +166,7 @@ export default function ContactClient() {
             </Card>
           </Reveal>
 
-          {/* ── Right Column: Interactive Form ──────────────────────────── */}
+          {/* Right Column: Interactive Form */}
           <Reveal delay={0.1} className="px-2">
             <Card font="normal" className="[--card-spacing:--spacing(6)] border-2 border-border">
               <CardContent className="flex-1">
@@ -276,7 +277,7 @@ export default function ContactClient() {
                         </AlertTitle>
                         <AlertDescription className="text-xs text-foreground mt-1">
                           {state.receipt
-                            ? `Your message has landed in ${profile.firstName}'s inbox — a confirmation receipt has been dispatched to your email.`
+                            ? `Your message has landed in ${profile.firstName}'s inbox: a confirmation receipt has been dispatched to your email.`
                             : `Your message has landed in ${profile.firstName}'s inbox.`}
                         </AlertDescription>
                       </Alert>

@@ -33,7 +33,7 @@ export function RetroModeSwitcher({ className }: RetroModeSwitcherProps) {
         stroke="currentColor"
         strokeWidth="0.25"
         className={cn("size-8 hidden [html.dark_&]:block", className)}
-        aria-label="sun-dim"
+        aria-label="sun dim"
       >
         <rect x="120" y="88" width="14" height="14" rx="1"></rect>
         <rect x="104" y="88" width="14" height="14" rx="1"></rect>

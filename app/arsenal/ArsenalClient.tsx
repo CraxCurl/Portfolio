@@ -45,7 +45,8 @@ export default function ArsenalClient() {
       <PageHeader
         screenTag="SKILL TREE // SCREEN 03"
         title="The Skill Tree"
-        lead="Four branches, thirty-odd nodes. The bars represent self-assessed confidence and hands-on depth."
+        subtitle="Arsenal: Technical Skills & Machine Learning Proficiency"
+        lead="Four branches, thirty plus nodes. The bars represent self assessed confidence and hands on depth."
         badge={`${totalSkills} Skills Categorized`}
         accentColor="text-secondary"
       >
@@ -200,16 +201,16 @@ export default function ArsenalClient() {
           </Tabs>
         )}
 
-        {/* ── Weaponry & Tooling Breakdown ────────────────────────────── */}
+        {/* Weaponry & Tooling Breakdown */}
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <Card font="normal" className="border-2 border-border p-5">
-            <h4 className="retro text-[10px] text-primary uppercase">Multi-Agent AI</h4>
+            <h4 className="retro text-[10px] text-primary uppercase">Multi Agent AI</h4>
             <p className="mt-2 text-xs text-muted-foreground">
               Gemini 2.5 Flash, Google Gemma, LangGraph paradigms, orchestration, prompt tuning, GNNs.
             </p>
           </Card>
           <Card font="normal" className="border-2 border-border p-5">
-            <h4 className="retro text-[10px] text-secondary uppercase">Full-Stack Web</h4>
+            <h4 className="retro text-[10px] text-secondary uppercase">Full Stack Web</h4>
             <p className="mt-2 text-xs text-muted-foreground">
               Next.js 16, React 19, TypeScript, Tailwind CSS, Node.js, Express, REST APIs, FastAPI.
             </p>

@@ -5,12 +5,9 @@ import { profile } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/8bit/tooltip";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 
-/**
- * Press Start 2P is the 8bitcn display face. `components/ui/8bit/styles/retro.css`
- * reads it from `--font-press-start`, so the whole kit picks it up from here
- * rather than from the Google Fonts CDN import the registry ships with.
- */
 const pressStart = Press_Start_2P({
   variable: "--font-press-start",
   weight: "400",
@@ -18,43 +15,49 @@ const pressStart = Press_Start_2P({
   display: "swap",
 });
 
-/** Body copy: Press Start 2P is unreadable past a few words, so prose is mono. */
 const body = Geist_Mono({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
 });
 
-const description = `${profile.role} and ${profile.headline.split("|")[0].trim()}. Building multi-agent AI systems, accessible web tooling and IoT that solves real problems.`;
+const siteTitle = "Vinayak Tripathi | AI & Full Stack Developer at VIT Chennai";
+const siteDescription =
+  "Portfolio of Vinayak Tripathi, CSE (AI & Robotics) undergraduate at VIT Chennai. Building multi agent AI systems, accessible web tools, and IoT solutions.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://yourthera.xyz"),
   title: {
-    default: `${profile.name} — ${profile.role}`,
-    template: `%s — ${profile.name}`,
+    default: siteTitle,
+    template: `%s | Vinayak Tripathi`,
   },
-  description,
+  description: siteDescription,
   keywords: [
-    profile.name,
-    "AI developer",
-    "full stack developer",
-    "VIT Chennai",
-    "multi-agent AI",
-    "React",
-    "Next.js",
-    "portfolio",
+    "Vinayak Tripathi",
+    "Vinayak Tripathi VIT Chennai",
+    "AI Developer",
+    "Full Stack Developer",
+    "Multi Agent AI",
+    "Next.js Portfolio",
+    "CSE AI Robotics",
   ],
   authors: [{ name: profile.name, url: profile.links.linkedin }],
   creator: profile.name,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
-    title: `${profile.name} — ${profile.role}`,
-    description,
-    siteName: profile.name,
+    locale: "en_US",
+    url: "https://yourthera.xyz",
+    siteName: "Vinayak Tripathi | Portfolio",
+    title: siteTitle,
+    description: siteDescription,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} — ${profile.role}`,
-    description,
+    title: siteTitle,
+    description: siteDescription,
   },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
@@ -62,27 +65,69 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  // The theme is class-driven and starts light, so this is a fixed value rather
-  // than a `prefers-color-scheme` pair.
   themeColor: "#f2efe2",
 };
 
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://yourthera.xyz/#person",
+      name: "Vinayak Tripathi",
+      url: "https://yourthera.xyz",
+      image: profile.avatar,
+      jobTitle: "AI & Full Stack Developer",
+      alumniOf: {
+        "@type": "CollegeOrUniversity",
+        name: "Vellore Institute of Technology Chennai",
+      },
+      knowsAbout: [
+        "Artificial Intelligence",
+        "Multi Agent Systems",
+        "Full Stack Development",
+        "Next.js",
+        "FastAPI",
+        "React",
+        "IoT",
+      ],
+      sameAs: [
+        profile.links.github,
+        profile.links.linkedin,
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://yourthera.xyz/#website",
+      url: "https://yourthera.xyz",
+      name: "Vinayak Tripathi | AI & Full Stack Developer at VIT Chennai",
+      description: siteDescription,
+      publisher: {
+        "@id": "https://yourthera.xyz/#person",
+      },
+    },
+  ],
+};
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    // `suppressHydrationWarning` is required by next-themes: it writes the
-    // theme class onto <html> before React hydrates.
     <html
       lang="en"
       suppressHydrationWarning
       data-scroll-behavior="smooth"
       className={cn(pressStart.variable, body.variable, "antialiased")}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="scanlines crt-vignette min-h-dvh font-sans">
-        {/* Light is the intended first impression; `enableSystem` is off so a
-            dark OS preference doesn't override it. `d` toggles from anywhere. */}
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

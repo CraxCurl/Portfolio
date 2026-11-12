@@ -99,8 +99,8 @@ export default function Playworld() {
                 Everything above ships from one place.
               </p>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
-                Repos, experiments and half-finished side quests all live on
-                GitHub — the commit log is the honest version of this page.
+                Repos, experiments and half finished side quests all live on
+                GitHub: the commit log is the honest version of this page.
               </p>
             </div>
 
