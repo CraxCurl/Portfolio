@@ -68,7 +68,7 @@ export const sections: SectionMeta[] = [
     href: "/journey",
     tag: "LOG // 02",
     summary: "Clubs at VIT Chennai, NIELIT training, and education timeline.",
-    statBadge: "5 QUESTS",
+    statBadge: "6 QUESTS",
   },
   {
     id: "arsenal",
@@ -134,47 +134,56 @@ export type TimelineItem = {
 
 export const timeline: TimelineItem[] = [
   {
-    role: "Technical Organising Committee & Core Member",
-    org: "Android Club, VIT Chennai",
-    meta: "Chennai, India · On site",
-    period: "Jun 2026 to Present",
+    role: "Web Development Member",
+    org: "Robotics Club, VIT Chennai",
+    meta: "Chennai, Tamil Nadu, India · On site",
+    period: "Jul 2026 to Present",
     summary:
-      "Technical Organising Committee for Zero to First Commit, Agent Arena, and Hacktoberfest Hackaday. Built and deployed AC Feud for Club Expo and Pixel Heist for TechnoVIT Expo.",
+      "Selected as a Web Development Member of the Robotics Club, VIT Chennai, contributing to web development initiatives and technical projects.",
     current: true,
     kind: "work",
   },
   {
-    role: "Web Development Member",
-    org: "Robotics Club, VIT Chennai",
-    meta: "Chennai, India · On site",
-    period: "Jul 2026 to Present",
+    role: "Technical Member",
+    org: "Android Club, VIT Chennai",
+    meta: "Chennai, Tamil Nadu, India · On site",
+    period: "Jun 2026 to Present",
     summary:
-      "Selected to the club web development team, shipping web initiatives and internal tooling for technical projects and events.",
+      "Selected as a Technical Member of the Android Club through the 2026 recruitment cycle. Technical Organising Committee for Zero to First Commit, Agent Arena, and Hacktoberfest Hackaday. Shipped AC Feud and Pixel Heist for campus expos.",
     current: true,
     kind: "work",
   },
   {
     role: "Summer Trainee: Full Stack (MERN)",
     org: "NIELIT, Lucknow",
-    meta: "Lucknow, India · Hybrid · Part time",
+    meta: "Lucknow, Uttar Pradesh, India · Hybrid · Part time",
     period: "Jun 2026 to Aug 2026",
     summary:
-      "90 hour summer training in full stack development: React.js, Node.js, Express.js, REST APIs, JSX, state and routing, plus hands on MySQL and MongoDB.",
+      "6 week, 90 hour summer training in full stack development through MERN stack at NIELIT Lucknow. Frontend and backend development using HTML, CSS, JavaScript, React.js, Node.js and Express.js with hands on REST APIs, JSX, state, routing, MySQL and MongoDB.",
+    kind: "work",
+  },
+  {
+    role: "Summer Trainee: Data Analytics",
+    org: "NIELIT, Gorakhpur",
+    meta: "Gorakhpur, Uttar Pradesh, India · On site",
+    period: "Jun 2026 to Jul 2026",
+    summary:
+      "4 week summer training in data analytics using spreadsheets and Power BI at NIELIT Gorakhpur. Mastered pivot tables, financial arithmetic, data visualization, and interactive dashboards, completing with an S Grade (80% and above).",
     kind: "work",
   },
   {
     role: "Cybersecurity Department Member",
     org: "Robotics Club, VIT Chennai",
-    meta: "Chennai, India · On site · Part time",
+    meta: "Chennai, Tamil Nadu, India · On site · Part time",
     period: "Nov 2025 to Mar 2026",
     summary:
-      "Active member of the cybersecurity department: workshops, technical deep dives, and collaborative security learning alongside club initiatives.",
+      "Active member of the Robotics Club Cybersecurity Department, participating in cybersecurity workshops, technical discussions, and collaborative learning activities while contributing to club initiatives.",
     kind: "work",
   },
   {
     role: "B.Tech, Computer Science (AI & Robotics)",
     org: "Vellore Institute of Technology",
-    meta: "Chennai, India",
+    meta: "Chennai, Tamil Nadu, India",
     period: "Jul 2025 to Present",
     summary:
       "Undergraduate degree specialising in artificial intelligence and robotics.",
