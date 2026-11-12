@@ -151,12 +151,16 @@ export default function ContactClient() {
                   >
                     <a href={`mailto:${profile.email}`}>
                       <MailIcon className="mr-2 size-4" />
-                      Direct Email: {profile.email}
+                      Direct Email
                     </a>
                   </Button>
                 </div>
 
-                <div className="border-t border-dashed border-border pt-4">
+                <div className="border-t border-dashed border-border pt-4 flex flex-col gap-2.5">
+                  <p className="retro flex items-center gap-2 text-[9px] text-muted-foreground uppercase">
+                    <MailIcon className="size-3.5 shrink-0 text-primary" aria-hidden="true" />
+                    <span>Email: <span className="font-mono lowercase select-all text-foreground">{profile.email}</span></span>
+                  </p>
                   <p className="retro flex items-center gap-2 text-[9px] text-muted-foreground uppercase">
                     <MapPin className="size-3.5 shrink-0 text-primary" aria-hidden="true" />
                     Base Station: {profile.location}

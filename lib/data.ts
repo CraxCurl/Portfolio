@@ -77,7 +77,7 @@ export const sections: SectionMeta[] = [
     href: "/arsenal",
     tag: "TECH // 03",
     summary: "Multi agent AI, full stack MERN, Python, and hardware proficiencies.",
-    statBadge: "26 NODES",
+    statBadge: "28 NODES",
   },
   {
     id: "adventures",
@@ -85,8 +85,8 @@ export const sections: SectionMeta[] = [
     screen: "Save Slots",
     href: "/adventures",
     tag: "BUILDS // 04",
-    summary: "9 shipped builds spanning multi agent copilot, IoT SOS, and web tools.",
-    statBadge: "9 BUILDS",
+    summary: "21 shipped builds spanning multi agent copilots, real time WebSockets, IoT and web tools.",
+    statBadge: "21 BUILDS",
   },
   {
     id: "playworld",
@@ -117,7 +117,7 @@ export const about = {
   lead: "I build things that sit between AI and the web.",
   paragraphs: [
     "I am a Computer Science (AI & Robotics) undergraduate at Vellore Institute of Technology Chennai. Most of what I build lives where machine learning meets an interface someone actually has to use: multi agent systems, accessibility tooling, graph based fraud detection, and IoT safety devices.",
-    "I was selected as a GSSoC'26 Contributor in the Open Source + AI/Agents track from a pool of 35,000+ applicants, trained in full stack MERN development at NIELIT Lucknow, and I currently serve on the web development teams of both the Robotics Club and Android Club at VIT Chennai.",
+    "I was selected as a GSSoC'26 Contributor in the Open Source + AI/Agents track from a pool of 35,000+ applicants, trained in full stack MERN development at NIELIT Lucknow and data analytics at NIELIT Gorakhpur, and I currently serve on the web development teams of both the Robotics Club and Android Club at VIT Chennai.",
     "I like problems where the hard part is not the model: it is making the whole thing hold together, stay fast, and degrade gracefully when something upstream fails.",
   ],
 } as const;
@@ -220,6 +220,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "Agentic Architecture", level: 85 },
       { name: "Distributed Systems", level: 80 },
       { name: "Vector Search & RAG", level: 80 },
+      { name: "PyTorch", level: 70 },
     ],
   },
   {
@@ -233,6 +234,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "JavaScript", level: 90 },
       { name: "Tailwind CSS", level: 90 },
       { name: "HTML5 Canvas", level: 80 },
+      { name: "Web Audio API", level: 75 },
       { name: "HTML & CSS", level: 95 },
     ],
   },
@@ -247,7 +249,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "Socket.IO & WebSockets", level: 85 },
       { name: "REST APIs", level: 90 },
       { name: "MongoDB", level: 80 },
-      { name: "MySQL", level: 75 },
+      { name: "SQL & MySQL", level: 75 },
     ],
   },
   {
@@ -260,6 +262,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "Linux", level: 75 },
       { name: "Vercel", level: 85 },
       { name: "Cloudinary APIs", level: 80 },
+      { name: "Data Analytics & Power BI", level: 80 },
       { name: "Problem Solving", level: 90 },
     ],
   },
@@ -303,8 +306,8 @@ export const projects: Project[] = [
       "Built for TechnoVIT Expo 2026 at VIT Chennai. A full stack real time image trivia platform featuring dynamic HTML5 canvas pixelation algorithms, live WebSocket synchronization between host and presenter screens, progressive hint reveals, and Cloudinary media pipeline.",
     stack: ["React 19", "Node.js", "Socket.IO", "HTML5 Canvas", "WebSockets"],
     category: "web",
-    live: "https://acfeud.vercel.app",
-    repo: "https://github.com/CraxCurl",
+    live: "https://pixel-heist-steel.vercel.app",
+    repo: "https://github.com/CraxCurl/Pixel-Heist",
     year: "2026",
     accent: "lime",
     highlight: "TechnoVIT Expo 2026",
@@ -359,6 +362,19 @@ export const projects: Project[] = [
     highlight: "Hardware",
   },
   {
+    name: "ACMURDLE",
+    tagline: "Interactive mystery investigation platform",
+    description:
+      "Built for the Agent Arena event at Android Club VITC. An interactive murder mystery web application where participants review case files, analyze clues, interrogate logic detectives, and submit crime deductions in real time.",
+    stack: ["React", "TypeScript", "Node.js", "Tailwind CSS"],
+    category: "web",
+    live: "https://acmurdle.vercel.app",
+    repo: "https://github.com/CraxCurl/MurderMystery",
+    year: "2026",
+    accent: "violet",
+    highlight: "Agent Arena 2026",
+  },
+  {
     name: "Acadly",
     tagline: "Real time classroom ecosystem",
     description:
@@ -371,18 +387,6 @@ export const projects: Project[] = [
     accent: "sky",
   },
   {
-    name: "ACMURDLE",
-    tagline: "Interactive mystery investigation platform",
-    description:
-      "Built for the Agent Arena event at Android Club VITC. An interactive murder mystery web application where participants review case files, analyze clues, interrogate logic detectives, and submit crime deductions in real time.",
-    stack: ["React", "TypeScript", "Node.js", "Tailwind CSS"],
-    category: "web",
-    repo: "https://github.com/CraxCurl",
-    year: "2026",
-    accent: "violet",
-    highlight: "Agent Arena 2026",
-  },
-  {
     name: "devChart",
     tagline: "Visual project orchestration for engineering teams",
     description:
@@ -393,6 +397,148 @@ export const projects: Project[] = [
     repo: "https://github.com/CraxCurl/devChart",
     year: "2026",
     accent: "lime",
+  },
+  {
+    name: "Kairo",
+    tagline: "Modern responsive utility suite",
+    description:
+      "A fast and modular web application delivering interactive client utilities, clean responsive state architecture, and modular API integrations with Python backends.",
+    stack: ["TypeScript", "React", "Next.js", "Python", "Tailwind CSS"],
+    category: "web",
+    live: "https://kairo-app-lemon.vercel.app",
+    repo: "https://github.com/CraxCurl/Kairo-App",
+    year: "2026",
+    accent: "sky",
+  },
+  {
+    name: "BRS Faculty Insights",
+    tagline: "Academic analytics & faculty intelligence",
+    description:
+      "Academic analytics and faculty feedback exploration platform providing interactive insight metrics, score aggregation, and visual student sentiment distributions.",
+    stack: ["JavaScript", "Data Analytics", "React", "Chart.js"],
+    category: "tools",
+    live: "https://brs-faculty-insights.vercel.app",
+    repo: "https://github.com/CraxCurl/brs-faculty-insights",
+    year: "2026",
+    accent: "pink",
+  },
+  {
+    name: "AgriX",
+    tagline: "AI farming assistant, Bauhaus styled",
+    description:
+      "A smart farming assistant that helps farmers make better decisions with AI driven guidance, wrapped in a deliberately bold Bauhaus constructivist modernism interface.",
+    stack: ["JavaScript", "Data Visualization", "REST APIs", "Modern UI"],
+    category: "web",
+    live: "https://agri-x-ten.vercel.app",
+    repo: "https://github.com/CraxCurl/AgriX",
+    year: "2026",
+    accent: "lime",
+  },
+  {
+    name: "Insurance DBMS",
+    tagline: "Relational policy & claims management system",
+    description:
+      "Relational database management web platform designed for structured insurance policy administration, claims processing, and customer record management.",
+    stack: ["JavaScript", "SQL", "Database Design", "Node.js"],
+    category: "web",
+    live: "https://insurance-dbms.vercel.app",
+    repo: "https://github.com/CraxCurl/Insurance-DBMS",
+    year: "2026",
+    accent: "amber",
+  },
+  {
+    name: "RC Swamp",
+    tagline: "Robotics Club portal & event showcase",
+    description:
+      "The official portal for the Robotics Club VITC, featuring project exhibits, recruitment management, workshop registrations, and club technical chronicles.",
+    stack: ["JavaScript", "React", "UI Engineering", "Tailwind CSS"],
+    category: "web",
+    live: "https://rc-swamp.vercel.app",
+    repo: "https://github.com/CraxCurl/RC-Swamp",
+    year: "2026",
+    accent: "lime",
+  },
+  {
+    name: "EventHub Scrapper",
+    tagline: "Automated campus event aggregator",
+    description:
+      "Scrapes and consolidates hackathons and tech event listings into one searchable hub so student opportunities do not get lost across multiple portals.",
+    stack: ["JavaScript", "Web Scraping", "Node.js", "Express"],
+    category: "tools",
+    live: "https://event-hub-scrapper.vercel.app",
+    repo: "https://github.com/CraxCurl/EventHubScrapper",
+    year: "2026",
+    accent: "violet",
+  },
+  {
+    name: "Smart Irrigation",
+    tagline: "IoT soil moisture & automated telemetry",
+    description:
+      "Automated irrigation monitoring dashboard integrating soil moisture thresholds, relay controls, and sensor state telemetry for smart resource management.",
+    stack: ["IoT Telemetry", "HTML", "JavaScript", "Hardware Relays"],
+    category: "hardware",
+    live: "https://smart-irrigation-liard.vercel.app",
+    repo: "https://github.com/CraxCurl/Smart-Irrigation",
+    year: "2026",
+    accent: "sky",
+  },
+  {
+    name: "VBridge",
+    tagline: "Academic resource & peer network gateway",
+    description:
+      "Dedicated web gateway bridging students with academic course resources, mentorship connections, technical discussion threads, and peer study groups.",
+    stack: ["CSS", "JavaScript", "Web Design", "Python"],
+    category: "web",
+    live: "https://vbridge.vercel.app",
+    repo: "https://github.com/CraxCurl/VBridge-Website",
+    year: "2026",
+    accent: "pink",
+  },
+  {
+    name: "Evol Sigma",
+    tagline: "Interactive procedural motion experiment",
+    description:
+      "High performance interactive web experiment exploring dynamic procedural animations, state transitions, and responsive fluid layout structures.",
+    stack: ["TypeScript", "React", "Next.js", "Tailwind CSS"],
+    category: "web",
+    live: "https://evol-sigma.vercel.app",
+    repo: "https://github.com/CraxCurl/VC",
+    year: "2026",
+    accent: "violet",
+  },
+  {
+    name: "YourThera",
+    tagline: "Wellness & mental health platform",
+    description:
+      "Accessible mental wellness support platform offering structured guided reflections, coping strategies, and mental health resource directories.",
+    stack: ["HTML", "CSS", "Responsive Design", "Accessibility"],
+    category: "web",
+    live: "https://your-thera.vercel.app",
+    repo: "https://github.com/CraxCurl/YourThera",
+    year: "2026",
+    accent: "amber",
+  },
+  {
+    name: "TaskStore ToDo",
+    tagline: "Client side state persistent task manager",
+    description:
+      "Local storage persistent task organizer featuring priority sorting, tag categorization, search filters, and smooth responsive keyboard controls.",
+    stack: ["JavaScript", "DOM API", "Local Storage", "CSS"],
+    category: "tools",
+    repo: "https://github.com/CraxCurl/TaskStore-ToDoList",
+    year: "2026",
+    accent: "lime",
+  },
+  {
+    name: "Text To Animate",
+    tagline: "Procedural SVG kinetic animation generator",
+    description:
+      "Browser tool that transforms structured text script prompts into choreographed SVG animations, procedural transitions, and interactive motion sequences.",
+    stack: ["JavaScript", "SVG Animations", "CSS Keyframes", "Canvas"],
+    category: "tools",
+    repo: "https://github.com/CraxCurl/TEXT-TO-ANIMATE",
+    year: "2026",
+    accent: "sky",
   },
 ];
 
@@ -434,9 +580,9 @@ export const achievements: Achievement[] = [
 ];
 
 export const stats = [
-  { value: "14+", label: "Public repos" },
-  { value: "9", label: "Projects shipped" },
-  { value: "5", label: "Live deployments" },
+  { value: "21", label: "Public repos" },
+  { value: "21", label: "Projects shipped" },
+  { value: "15", label: "Live deployments" },
   { value: "2", label: "Campus clubs" },
 ];
 

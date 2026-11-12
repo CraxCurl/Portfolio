@@ -127,7 +127,7 @@ export default function Home() {
 
               <Button asChild variant="outline" size="sm" className="text-[9px]">
                 <Link href="/adventures">
-                  All 9 Builds
+                  All 21 Builds
                   <ArrowRight className="ml-1.5 size-3" />
                 </Link>
               </Button>
