@@ -89,8 +89,8 @@ export default function Hero() {
             id="home-heading"
             className="retro text-pixel mt-4 text-2xl leading-[1.35] text-foreground sm:text-4xl lg:text-[2.6rem]"
           >
-            <span className="block text-xs sm:text-sm text-muted-foreground font-mono font-normal tracking-wider mb-3">
-              Vinayak Tripathi | AI &amp; Full Stack Developer at VIT Chennai
+            <span className="sr-only">
+              Vinayak Tripathi | AI &amp; Full Stack Developer at VIT Chennai |{" "}
             </span>
             <span className="block">{profile.titleTop}</span>
             <span className="mt-2 block text-primary">{profile.titleBottom}</span>

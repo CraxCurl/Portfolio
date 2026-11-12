@@ -66,8 +66,8 @@ export default function PageHeader({
                 accentColor,
               )}
             >
-              <span className="block text-xs sm:text-sm text-muted-foreground font-mono font-normal tracking-wider mb-2 normal-case">
-                Vinayak Tripathi | AI &amp; Full Stack Developer at VIT Chennai
+              <span className="sr-only">
+                Vinayak Tripathi | AI &amp; Full Stack Developer at VIT Chennai |{" "}
               </span>
               <span className="block">{title}</span>
             </h1>
