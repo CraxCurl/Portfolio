@@ -53,11 +53,20 @@ export const metadata: Metadata = {
     siteName: "Vinayak Tripathi | Portfolio",
     title: siteTitle,
     description: siteDescription,
+    images: [
+      {
+        url: "/avatar.jpg",
+        width: 400,
+        height: 400,
+        alt: "Vinayak Tripathi",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
+    images: ["/avatar.jpg"],
   },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
@@ -76,7 +85,7 @@ const jsonLd = {
       "@id": "https://yourthera.xyz/#person",
       name: "Vinayak Tripathi",
       url: "https://yourthera.xyz",
-      image: profile.avatar,
+      image: "https://yourthera.xyz/avatar.jpg",
       jobTitle: "AI & Full Stack Developer",
       alumniOf: {
         "@type": "CollegeOrUniversity",

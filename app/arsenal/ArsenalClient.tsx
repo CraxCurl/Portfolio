@@ -68,7 +68,7 @@ export default function ArsenalClient() {
             <div className="relative w-full max-w-md">
               <Search className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
               <Input
-                placeholder="Search skills (e.g. Gemini, React, Python)..."
+                placeholder="Search skills (e.g. Python, React, WebSockets)..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-9 text-xs"
@@ -204,9 +204,9 @@ export default function ArsenalClient() {
         {/* Weaponry & Tooling Breakdown */}
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <Card font="normal" className="border-2 border-border p-5">
-            <h4 className="retro text-[10px] text-primary uppercase">Multi Agent AI</h4>
+            <h4 className="retro text-[10px] text-primary uppercase">Multi Agent Architecture</h4>
             <p className="mt-2 text-xs text-muted-foreground">
-              Gemini 2.5 Flash, Google Gemma, LangGraph paradigms, orchestration, prompt tuning, GNNs.
+              Autonomous agent orchestration, state machines, tool use, GNNs, and vector retrieval.
             </p>
           </Card>
           <Card font="normal" className="border-2 border-border p-5">
