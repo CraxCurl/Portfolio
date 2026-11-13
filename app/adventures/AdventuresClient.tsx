@@ -141,14 +141,14 @@ export default function AdventuresClient() {
         screenTag="SAVE SLOTS // SCREEN 04"
         title="The Save Slots"
         subtitle="Adventures: Shipped AI & Full Stack Projects"
-        lead="Fourteen builds spanning multi agent AI copilots, real time WebSockets, IoT SOS, and interactive platforms. 11 are live and testable."
+        lead="Twelve builds spanning multi agent AI copilots, real time WebSockets, IoT SOS, and interactive platforms. 9 are live and testable."
         badge={`${projects.length} Shipped Projects`}
         accentColor="text-accent"
       >
         <div className="flex flex-wrap items-center gap-2">
           <Badge variant="outline" className="retro text-[8px] uppercase">
             <Sparkles className="mr-1 size-2.5" />
-            11 Live Deployments
+            9 Live Deployments
           </Badge>
           <Badge variant="secondary" className="retro text-[8px] uppercase">
             Full Open Source
@@ -364,6 +364,41 @@ export default function AdventuresClient() {
             );
           })}
         </div>
+
+        {/* GitHub Callout: These are just featured projects */}
+        <Reveal delay={0.2} className="mt-14">
+          <Card
+            font="normal"
+            className="border-2 border-border bg-card/60 p-6 sm:p-10 text-center"
+          >
+            <div className="mx-auto max-w-2xl flex flex-col items-center">
+              <Badge variant="outline" className="retro text-[8px] uppercase mb-4">
+                <GithubIcon className="mr-1.5 size-3" />
+                GitHub Vault
+              </Badge>
+              <h3 className="retro text-base font-bold uppercase sm:text-lg text-foreground">
+                These Are Just Featured Projects
+              </h3>
+              <p className="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-lg">
+                Looking for more? Explore all repositories, experimental builds, hardware prototypes, and open source code directly on GitHub.
+              </p>
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+                <Button asChild size="default" className="text-[9px] uppercase">
+                  <a
+                    href="https://github.com/CraxCurl"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <GithubIcon className="size-4" />
+                    <span>Check Out GitHub</span>
+                    <ArrowUpRight className="size-3.5" />
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </Card>
+        </Reveal>
       </div>
 
       <ScreenNavigator currentId="adventures" />

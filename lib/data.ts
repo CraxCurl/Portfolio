@@ -85,8 +85,8 @@ export const sections: SectionMeta[] = [
     screen: "Save Slots",
     href: "/adventures",
     tag: "BUILDS // 04",
-    summary: "14 shipped builds spanning multi agent copilots, real time WebSockets, IoT and web tools.",
-    statBadge: "14 BUILDS",
+    summary: "12 shipped builds spanning multi agent copilots, real time WebSockets, IoT and web tools.",
+    statBadge: "12 BUILDS",
   },
   {
     id: "playworld",
@@ -387,36 +387,12 @@ export const projects: Project[] = [
     accent: "sky",
   },
   {
-    name: "Kairo",
-    tagline: "Modern responsive utility suite",
+    name: "RC Swarm Drone",
+    tagline: "Autonomous swarm drone coordination & FPV ground station",
     description:
-      "A fast and modular web application delivering interactive client utilities, clean responsive state architecture, and modular API integrations with Python backends.",
-    stack: ["TypeScript", "React", "Next.js", "Python", "Tailwind CSS"],
-    category: "web",
-    live: "https://kairo-app-lemon.vercel.app",
-    repo: "https://github.com/CraxCurl/Kairo-App",
-    year: "2026",
-    accent: "sky",
-  },
-  {
-    name: "Insurance DBMS",
-    tagline: "Relational policy & claims management system",
-    description:
-      "Relational database management web platform designed for structured insurance policy administration, claims processing, and customer record management.",
-    stack: ["JavaScript", "SQL", "Database Design", "Node.js"],
-    category: "web",
-    live: "https://insurance-dbms.vercel.app",
-    repo: "https://github.com/CraxCurl/Insurance-DBMS",
-    year: "2026",
-    accent: "amber",
-  },
-  {
-    name: "RC Swamp",
-    tagline: "Robotics Club portal & event showcase",
-    description:
-      "The official portal for the Robotics Club VITC, featuring project exhibits, recruitment management, workshop registrations, and club technical chronicles.",
-    stack: ["JavaScript", "React", "UI Engineering", "Tailwind CSS"],
-    category: "web",
+      "Interdisciplinary IDP project developing an autonomous drone swarm coordination engine, FPV ground control station, computer vision pipeline, and UDP flight telemetry decoder.",
+    stack: ["Python", "FastAPI", "OpenCV", "ESP32", "WebSockets"],
+    category: "hardware",
     live: "https://rc-swamp.vercel.app",
     repo: "https://github.com/CraxCurl/RC-Swamp",
     year: "2026",
@@ -424,10 +400,10 @@ export const projects: Project[] = [
   },
   {
     name: "EventHub Scrapper",
-    tagline: "Automated campus event aggregator",
+    tagline: "Modern glassmorphic VIT EventHub scraper & portal",
     description:
-      "Scrapes and consolidates hackathons and tech event listings into one searchable hub so student opportunities do not get lost across multiple portals.",
-    stack: ["JavaScript", "Web Scraping", "Node.js", "Express"],
+      "Scrapes and consolidates VIT Chennai EventHub listings into a responsive glassmorphic dashboard with live sync, category filters, calendar export, and search.",
+    stack: ["Node.js", "Express", "Cheerio", "JavaScript", "HTML & CSS"],
     category: "tools",
     live: "https://event-hub-scrapper.vercel.app",
     repo: "https://github.com/CraxCurl/EventHubScrapper",
@@ -448,13 +424,13 @@ export const projects: Project[] = [
   },
   {
     name: "VBridge",
-    tagline: "Academic resource & peer network gateway",
+    tagline: "Ultra low latency audio relay & mixing system",
     description:
-      "Dedicated web gateway bridging students with academic course resources, mentorship connections, technical discussion threads, and peer study groups.",
-    stack: ["CSS", "JavaScript", "Web Design", "Python"],
-    category: "web",
+      "Real time audio bridge streaming uncompressed 48 kHz stereo audio from Android to a Windows PC and Bluetooth earbuds over Wi Fi UDP with WASAPI low latency rendering.",
+    stack: ["Windows WASAPI", "Python", "Android", "UDP Sockets", "Vanilla JS"],
+    category: "tools",
     live: "https://vbridge.vercel.app",
-    repo: "https://github.com/CraxCurl/VBridge-Website",
+    repo: "https://github.com/CraxCurl/VBridge",
     year: "2026",
     accent: "pink",
   },
@@ -498,9 +474,9 @@ export const achievements: Achievement[] = [
 ];
 
 export const stats = [
-  { value: "14", label: "Public repos" },
-  { value: "14", label: "Projects shipped" },
-  { value: "11", label: "Live deployments" },
+  { value: "12", label: "Public repos" },
+  { value: "12", label: "Projects shipped" },
+  { value: "9", label: "Live deployments" },
   { value: "2", label: "Campus clubs" },
 ];
 
