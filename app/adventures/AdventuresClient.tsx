@@ -141,14 +141,14 @@ export default function AdventuresClient() {
         screenTag="SAVE SLOTS // SCREEN 04"
         title="The Save Slots"
         subtitle="Adventures: Shipped AI & Full Stack Projects"
-        lead="Twenty one builds spanning multi agent AI copilots, real time WebSockets, IoT SOS, and interactive platforms. 15 are live and testable."
+        lead="Fourteen builds spanning multi agent AI copilots, real time WebSockets, IoT SOS, and interactive platforms. 11 are live and testable."
         badge={`${projects.length} Shipped Projects`}
         accentColor="text-accent"
       >
         <div className="flex flex-wrap items-center gap-2">
           <Badge variant="outline" className="retro text-[8px] uppercase">
             <Sparkles className="mr-1 size-2.5" />
-            15 Live Deployments
+            11 Live Deployments
           </Badge>
           <Badge variant="secondary" className="retro text-[8px] uppercase">
             Full Open Source

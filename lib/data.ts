@@ -85,8 +85,8 @@ export const sections: SectionMeta[] = [
     screen: "Save Slots",
     href: "/adventures",
     tag: "BUILDS // 04",
-    summary: "21 shipped builds spanning multi agent copilots, real time WebSockets, IoT and web tools.",
-    statBadge: "21 BUILDS",
+    summary: "14 shipped builds spanning multi agent copilots, real time WebSockets, IoT and web tools.",
+    statBadge: "14 BUILDS",
   },
   {
     id: "playworld",
@@ -387,18 +387,6 @@ export const projects: Project[] = [
     accent: "sky",
   },
   {
-    name: "devChart",
-    tagline: "Visual project orchestration for engineering teams",
-    description:
-      "A collaboration board built for developers working across multiple projects at once, keeping task state, issue branches, and component ownership legible.",
-    stack: ["TypeScript", "React", "State Management", "Tailwind CSS"],
-    category: "tools",
-    live: "https://dev-chart-five.vercel.app",
-    repo: "https://github.com/CraxCurl/devChart",
-    year: "2026",
-    accent: "lime",
-  },
-  {
     name: "Kairo",
     tagline: "Modern responsive utility suite",
     description:
@@ -409,30 +397,6 @@ export const projects: Project[] = [
     repo: "https://github.com/CraxCurl/Kairo-App",
     year: "2026",
     accent: "sky",
-  },
-  {
-    name: "BRS Faculty Insights",
-    tagline: "Academic analytics & faculty intelligence",
-    description:
-      "Academic analytics and faculty feedback exploration platform providing interactive insight metrics, score aggregation, and visual student sentiment distributions.",
-    stack: ["JavaScript", "Data Analytics", "React", "Chart.js"],
-    category: "tools",
-    live: "https://brs-faculty-insights.vercel.app",
-    repo: "https://github.com/CraxCurl/brs-faculty-insights",
-    year: "2026",
-    accent: "pink",
-  },
-  {
-    name: "AgriX",
-    tagline: "AI farming assistant, Bauhaus styled",
-    description:
-      "A smart farming assistant that helps farmers make better decisions with AI driven guidance, wrapped in a deliberately bold Bauhaus constructivist modernism interface.",
-    stack: ["JavaScript", "Data Visualization", "REST APIs", "Modern UI"],
-    category: "web",
-    live: "https://agri-x-ten.vercel.app",
-    repo: "https://github.com/CraxCurl/AgriX",
-    year: "2026",
-    accent: "lime",
   },
   {
     name: "Insurance DBMS",
@@ -494,52 +458,6 @@ export const projects: Project[] = [
     year: "2026",
     accent: "pink",
   },
-  {
-    name: "Evol Sigma",
-    tagline: "Interactive procedural motion experiment",
-    description:
-      "High performance interactive web experiment exploring dynamic procedural animations, state transitions, and responsive fluid layout structures.",
-    stack: ["TypeScript", "React", "Next.js", "Tailwind CSS"],
-    category: "web",
-    live: "https://evol-sigma.vercel.app",
-    repo: "https://github.com/CraxCurl/VC",
-    year: "2026",
-    accent: "violet",
-  },
-  {
-    name: "YourThera",
-    tagline: "Wellness & mental health platform",
-    description:
-      "Accessible mental wellness support platform offering structured guided reflections, coping strategies, and mental health resource directories.",
-    stack: ["HTML", "CSS", "Responsive Design", "Accessibility"],
-    category: "web",
-    live: "https://your-thera.vercel.app",
-    repo: "https://github.com/CraxCurl/YourThera",
-    year: "2026",
-    accent: "amber",
-  },
-  {
-    name: "TaskStore ToDo",
-    tagline: "Client side state persistent task manager",
-    description:
-      "Local storage persistent task organizer featuring priority sorting, tag categorization, search filters, and smooth responsive keyboard controls.",
-    stack: ["JavaScript", "DOM API", "Local Storage", "CSS"],
-    category: "tools",
-    repo: "https://github.com/CraxCurl/TaskStore-ToDoList",
-    year: "2026",
-    accent: "lime",
-  },
-  {
-    name: "Text To Animate",
-    tagline: "Procedural SVG kinetic animation generator",
-    description:
-      "Browser tool that transforms structured text script prompts into choreographed SVG animations, procedural transitions, and interactive motion sequences.",
-    stack: ["JavaScript", "SVG Animations", "CSS Keyframes", "Canvas"],
-    category: "tools",
-    repo: "https://github.com/CraxCurl/TEXT-TO-ANIMATE",
-    year: "2026",
-    accent: "sky",
-  },
 ];
 
 export const featuredProject = projects.find((p) => p.featured) ?? projects[0];
@@ -580,9 +498,9 @@ export const achievements: Achievement[] = [
 ];
 
 export const stats = [
-  { value: "21", label: "Public repos" },
-  { value: "21", label: "Projects shipped" },
-  { value: "15", label: "Live deployments" },
+  { value: "14", label: "Public repos" },
+  { value: "14", label: "Projects shipped" },
+  { value: "11", label: "Live deployments" },
   { value: "2", label: "Campus clubs" },
 ];
 
